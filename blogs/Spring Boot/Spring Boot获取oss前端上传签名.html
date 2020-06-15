@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring Boot获取oss前端上传签名 | 一只奋斗的蜗牛</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="icon" href="/assets/images/favicon.ico">
+    <meta name="description" content="不积跬步,无以至千里;不积小流,无以成江海。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.d554b62a.css" as="style"><link rel="preload" href="/assets/js/app.c5bf911a.js" as="script"><link rel="preload" href="/assets/js/3.221a7002.js" as="script"><link rel="preload" href="/assets/js/1.5922175c.js" as="script"><link rel="preload" href="/assets/js/14.085c3745.js" as="script"><link rel="prefetch" href="/assets/js/10.e9430a3c.js"><link rel="prefetch" href="/assets/js/11.f48345e1.js"><link rel="prefetch" href="/assets/js/12.85a18b48.js"><link rel="prefetch" href="/assets/js/13.680ee075.js"><link rel="prefetch" href="/assets/js/15.8059d889.js"><link rel="prefetch" href="/assets/js/16.95c91055.js"><link rel="prefetch" href="/assets/js/17.d0e2dbaa.js"><link rel="prefetch" href="/assets/js/18.18aac69a.js"><link rel="prefetch" href="/assets/js/19.e0aabbba.js"><link rel="prefetch" href="/assets/js/20.27decdb0.js"><link rel="prefetch" href="/assets/js/21.dd37f49f.js"><link rel="prefetch" href="/assets/js/22.d7e18cc3.js"><link rel="prefetch" href="/assets/js/23.c4bbef0a.js"><link rel="prefetch" href="/assets/js/4.18f70bcd.js"><link rel="prefetch" href="/assets/js/5.74730a64.js"><link rel="prefetch" href="/assets/js/6.bd89f675.js"><link rel="prefetch" href="/assets/js/7.537b4a3d.js"><link rel="prefetch" href="/assets/js/8.61f7b56b.js"><link rel="prefetch" href="/assets/js/9.8fa3b71f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d554b62a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-19557b78><div data-v-19557b78><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-19557b78 data-v-19557b78><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-19557b78 data-v-19557b78><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>一只奋斗的蜗牛</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>一只奋斗的蜗牛</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2020
+        </a></span></div></div> <div class="hide" data-v-19557b78><header class="navbar" data-v-19557b78><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/images/favicon.ico" alt="一只奋斗的蜗牛" class="logo"> <span class="site-name">一只奋斗的蜗牛</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring Boot/" class="nav-link"><i class="iconfont undefined"></i>
+  Spring Boot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/CSS/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/raoqinsong" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-19557b78></div> <aside class="sidebar" data-v-19557b78><div class="personal-info-wrapper" data-v-b038cec6><img src="/assets/images/qrcode_for_gh_2071df54da83_430.jpg" alt="author-avatar" class="personal-img" data-v-b038cec6> <h3 class="name" data-v-b038cec6>
+    一只奋斗的蜗牛
+  </h3> <div class="num" data-v-b038cec6><div data-v-b038cec6><h3 data-v-b038cec6>8</h3> <h6 data-v-b038cec6>Article</h6></div> <div data-v-b038cec6><h3 data-v-b038cec6>5</h3> <h6 data-v-b038cec6>Tag</h6></div></div> <hr data-v-b038cec6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring Boot/" class="nav-link"><i class="iconfont undefined"></i>
+  Spring Boot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/CSS/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/raoqinsong" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Spring Boot</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blogs/Spring Boot/Spring Boot获取oss前端上传签名.html" class="active sidebar-link">Spring Boot获取oss前端上传签名</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blogs/Spring Boot/Spring Boot获取oss前端上传签名.html#获取上传签名代码" class="sidebar-link">获取上传签名代码</a></li><li class="sidebar-sub-header"><a href="/blogs/Spring Boot/Spring Boot获取oss前端上传签名.html#使用说明" class="sidebar-link">使用说明</a></li></ul></li><li><a href="/blogs/Spring Boot/Spring Boot获取oss前端下载签名.html" class="sidebar-link">Spring Boot获取oss前端下载签名</a></li><li><a href="/blogs/Spring Boot/自定义阿里云oss Starter.html" class="sidebar-link">自定义阿里云oss Starter</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-19557b78><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Spring Boot获取oss前端上传签名</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>一只奋斗的蜗牛</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2020
+        </a></span></div></div> <div data-v-19557b78><main class="page"><div class="page-title" style="display:none;"><h1>Spring Boot获取oss前端上传签名</h1> <hr> <div data-v-484a899e><i class="iconfont reco-account" data-v-484a899e><span data-v-484a899e>一只奋斗的蜗牛</span></i> <i class="iconfont reco-date" data-v-484a899e><span data-v-484a899e>2020-06-13</span></i> <i class="iconfont reco-eye" data-v-484a899e><span id="/blogs/Spring%20Boot/Spring%20Boot%E8%8E%B7%E5%8F%96oss%E5%89%8D%E7%AB%AF%E4%B8%8A%E4%BC%A0%E7%AD%BE%E5%90%8D.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-484a899e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-484a899e><span class="tag-item" data-v-484a899e>
+      Spring Boot
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="获取上传签名代码"><a href="#获取上传签名代码" class="header-anchor">#</a> 获取上传签名代码</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code> /**
+     * 获取签名
+     * @return
+     */
+    public OssSignature getSignature(OSSClient ossClient,OssProperties ossProperties,String fileName) {
+        /**
+        * host的格式为 bucket .endpoint
+        */
+        String host = &quot;&quot;;
+        if (StringUtils.isBlank(ossProperties.getHost())){
+             host = &quot;http://&quot; + ossProperties.getBucketName() + &quot;.&quot; + ossProperties.getEndpoint();
+        }else{
+            host = ossProperties.getHost();
+        }
+
+        String dir = ossProperties.getDir();
+        String str = &quot;/&quot;;
+        if (!dir.contains(str)){
+            dir = dir + str;
+        }
+
+        OssSignature ossSignature = new OssSignature();
+        try {
+            long expireTime = 30;
+            if(StringUtils.isNotBlank(ossProperties.getExpire())){
+                expireTime = Long.parseLong(ossProperties.getExpire());
+            }
+
+            long expireEndTime = System.currentTimeMillis() + expireTime * 1000;
+            Date expiration = new Date(expireEndTime);
+            PolicyConditions policyConds = new PolicyConditions();
+            policyConds.addConditionItem(PolicyConditions.COND_CONTENT_LENGTH_RANGE, 0, 1048576000);
+            policyConds.addConditionItem(MatchMode.Exact, PolicyConditions.COND_KEY, fileName);
+
+            String postPolicy = ossClient.generatePostPolicy(expiration, policyConds);
+            byte[] binaryData = postPolicy.getBytes(&quot;utf-8&quot;);
+            String encodedPolicy = BinaryUtil.toBase64String(binaryData);
+            String postSignature = ossClient.calculatePostSignature(postPolicy);
+
+
+
+            ossSignature.setAccessKeyId(ossProperties.getAccessKeyId());
+            ossSignature.setPolicy(encodedPolicy);
+            ossSignature.setSignature(postSignature);
+            ossSignature.setDir(fileName);
+            ossSignature.setHost(host);
+            ossSignature.setExpire(String.valueOf(expireEndTime / 1000));
+
+            JSONObject jasonCallback = new JSONObject();
+            jasonCallback.put(&quot;callbackUrl&quot;, ossProperties.getCallback());
+            jasonCallback.put(&quot;callbackBody&quot;,
+                    &quot;filename=${object}&amp;size=${size}&amp;mimeType=${mimeType}&amp;height=${imageInfo.height}&amp;width=${imageInfo.width}&quot;);
+            jasonCallback.put(&quot;callbackBodyType&quot;, &quot;application/x-www-form-urlencoded&quot;);
+            String base64CallbackBody = BinaryUtil.toBase64String(jasonCallback.toString().getBytes(&quot;utf-8&quot;));
+
+            ossSignature.setCallback(base64CallbackBody);
+
+        } catch (Exception e) {
+            log.error(&quot;获取签名失败:&quot;,e);
+        }
+        return ossSignature;
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><p><code>因为上传回调需要外网访问本机的地址，所以可以不用写回调地址。前端判断响应状态码为200，则为成功。具体前端如何做</code><a href="https://blog.lzs81.cn/blogs/Vue/oss%E5%89%8D%E7%AB%AF%E7%9B%B4%E4%BC%A0.html" target="_blank" rel="noopener noreferrer">参考前端上传代码<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    /**
+     * 获取public key
+     *
+     * @param url
+     * @return
+     */
+    public String executeGet(String url) {
+        BufferedReader in = null;
+
+        String content = null;
+        try {
+            // 定义HttpClient
+            @SuppressWarnings(&quot;resource&quot;)
+            HttpClient client =  HttpClientBuilder.create().build();
+            // 实例化HTTP方法
+            HttpGet request = new HttpGet();
+            request.setURI(new URI(url));
+            HttpResponse response = client.execute(request);
+
+            in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            StringBuffer sb = new StringBuffer(&quot;&quot;);
+            String line = &quot;&quot;;
+            String nL = System.getProperty(&quot;line.separator&quot;);
+            while ((line = in.readLine()) != null) {
+                sb.append(line + nL);
+            }
+            in.close();
+            content = sb.toString();
+            return content;
+        } catch (Exception e) {
+            log.error(&quot;获取public key:&quot;,e);
+            return &quot;&quot;;
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();// 最后要关闭BufferedReader
+                } catch (Exception e) {
+                    log.error(&quot;关闭BufferedReader:&quot;,e);
+                }
+            }
+        }
+    }
+
+    /**
+     * 获取Post消息体
+     *
+     * @param is
+     * @param contentLen
+     * @return
+     */
+    public String getPostBody(InputStream is, int contentLen) {
+        if (contentLen &gt; 0) {
+            int readLen = 0;
+            int readLengthThisTime = 0;
+            byte[] message = new byte[contentLen];
+            try {
+                while (readLen != contentLen) {
+                    readLengthThisTime = is.read(message, readLen, contentLen - readLen);
+                    /* Should not happen.*/
+                    if (readLengthThisTime == -1) {
+                        break;
+                    }
+                    readLen += readLengthThisTime;
+                }
+                return new String(message);
+            } catch (IOException e) {
+                log.error(&quot;获取Post消息体失败:&quot;,e);
+            }
+        }
+        return &quot;&quot;;
+    }
+
+    /**
+     * 验证上传回调的Request
+     *
+     * @param request
+     * @param ossCallbackBody
+     * @return
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    protected boolean verifyOSSCallbackRequest(HttpServletRequest request, String ossCallbackBody)
+            throws NumberFormatException, IOException {
+        boolean ret = false;
+        String autorizationInput = new String(request.getHeader(&quot;Authorization&quot;));
+        if (StringUtils.isBlank(autorizationInput)){
+            return false;
+        }
+        String pubKeyInput = request.getHeader(&quot;x-oss-pub-key-url&quot;);
+        byte[] authorization = BinaryUtil.fromBase64String(autorizationInput);
+        byte[] pubKey = BinaryUtil.fromBase64String(pubKeyInput);
+        String pubKeyAddr = new String(pubKey);
+        String http = &quot;http://gosspublic.alicdn.com/&quot;;
+        String https = &quot;https://gosspublic.alicdn.com/&quot;;
+        if (!pubKeyAddr.startsWith(http)
+                &amp;&amp; !pubKeyAddr.startsWith(https)) {
+            System.out.println(&quot;pub key addr must be oss addrss&quot;);
+            return false;
+        }
+        String retString = executeGet(pubKeyAddr);
+        retString = retString.replace(&quot;-----BEGIN PUBLIC KEY-----&quot;, &quot;&quot;);
+        retString = retString.replace(&quot;-----END PUBLIC KEY-----&quot;, &quot;&quot;);
+        String queryString = request.getQueryString();
+        String uri = request.getRequestURI();
+        String decodeUri = java.net.URLDecoder.decode(uri, &quot;UTF-8&quot;);
+        String authStr = decodeUri;
+        if (queryString != null &amp;&amp; !&quot;&quot;.equals(queryString)) {
+            authStr += &quot;?&quot; + queryString;
+        }
+        authStr += &quot;\n&quot; + ossCallbackBody;
+        ret = doCheck(authStr, authorization, retString);
+        return ret;
+    }
+
+    /**
+     * Post请求
+     */
+    public void callback(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String ossCallbackBody = getPostBody(request.getInputStream(),
+                Integer.parseInt(request.getHeader(&quot;content-length&quot;)));
+        boolean ret = verifyOSSCallbackRequest(request, ossCallbackBody);
+        ///System.out.println(&quot;verify result : &quot; + ret);
+        if (ret) {
+            response(request, response, &quot;{\&quot;Status\&quot;:\&quot;OK\&quot;}&quot;, HttpServletResponse.SC_OK);
+        } else {
+            response(request, response, &quot;{\&quot;Status\&quot;:\&quot;verdify not ok\&quot;}&quot;, HttpServletResponse.SC_BAD_REQUEST);
+        }
+    }
+
+    /**
+     * 验证RSA
+     *
+     * @param content
+     * @param sign
+     * @param publicKey
+     * @return
+     */
+    public static boolean doCheck(String content, byte[] sign, String publicKey) {
+        try {
+            KeyFactory keyFactory = KeyFactory.getInstance(&quot;RSA&quot;);
+            byte[] encodedKey = BinaryUtil.fromBase64String(publicKey);
+            PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
+            java.security.Signature signature = java.security.Signature.getInstance(&quot;MD5withRSA&quot;);
+            signature.initVerify(pubKey);
+            signature.update(content.getBytes());
+            boolean bverify = signature.verify(sign);
+            return bverify;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
+     * 服务器响应结果
+     *
+     * @param request
+     * @param response
+     * @param results
+     * @param status
+     * @throws IOException
+     */
+    private void response(HttpServletRequest request, HttpServletResponse response, String results, int status)
+            throws IOException {
+        String callbackFunName = request.getParameter(&quot;callback&quot;);
+        response.addHeader(&quot;Content-Length&quot;, String.valueOf(results.length()));
+        if (callbackFunName == null || &quot;&quot;.equalsIgnoreCase(callbackFunName)){
+            response.getWriter().println(results);
+        }
+        else{
+            response.getWriter().println(callbackFunName + &quot;( &quot; + results + &quot; )&quot;);
+        }
+        response.setStatus(status);
+        response.flushBuffer();
+    }
+
+    /**
+     * 服务器响应结果
+     */
+    private void response(HttpServletRequest request, HttpServletResponse response, String results) throws IOException {
+        String callbackFunName = request.getParameter(&quot;callback&quot;);
+        if (callbackFunName == null || &quot;&quot;.equalsIgnoreCase(callbackFunName)){
+            response.getWriter().println(results);
+        }
+        else{
+            response.getWriter().println(callbackFunName + &quot;( &quot; + results + &quot; )&quot;);
+        }
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.flushBuffer();
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br></div></div><h2 id="使用说明"><a href="#使用说明" class="header-anchor">#</a> 使用说明</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>@SpringBootApplication
+@EnableAliyunOss
+@EnableSwagger2Doc
+@RestController
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+    
+        @Autowired
+        private OssProperties aliyunOssProperties;
+        @Autowired
+        private OSSClient ossClient;
+    
+        @ApiOperation(&quot;临时授权&quot;)
+    @PostMapping(&quot;/getSignature&quot;)
+    public OssSignature&lt;String&gt; getSignature(@RequestParam(&quot;orgFileName&quot;) String orgFileName) {
+
+        String id = UuidUtils.createId();
+        String str = &quot;/&quot;;
+        String dir = ossProperties.getDir();
+        if (!dir.contains(str)){
+            dir = dir+str;
+        }
+        String ext = orgFileName.substring(orgFileName.lastIndexOf(&quot;.&quot;));
+
+        String newFileName = dir + id + ext;
+
+        OssSignature&lt;String&gt; signature = new OssClientManager().getSignature(ossClient, ossProperties,newFileName);
+
+        signature.setData(dir);
+        return signature;
+    }
+
+
+
+    /**
+     * Post请求
+     */
+    @GetMapping(&quot;/callback&quot;)
+    public void callback(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        new OssClientManager().callback(request,response);
+        }
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><p><a href="https://gitee.com/raoqinsong/oss-starter" target="_blank" rel="noopener noreferrer">码云<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.c5bf911a.js" defer></script><script src="/assets/js/3.221a7002.js" defer></script><script src="/assets/js/1.5922175c.js" defer></script><script src="/assets/js/14.085c3745.js" defer></script>
+  </body>
+</html>
